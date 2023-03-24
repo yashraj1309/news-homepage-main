@@ -9,6 +9,244 @@
     src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf') format('truetype-variations');
 }
 
+:root {
+    --soft-orange: hsl(35, 77%, 62%);
+    --soft-red: hsl(5, 85%, 63%);
+    --off-white: hsl(36, 100%, 99%);
+    --grayish-blue: hsl(233, 8%, 79%);
+    --dark-grayish-blue: hsl(236, 13%, 42%);
+    --very-dark-blue: hsl(240, 100%, 5%);
+
+} 
+
 body,button {
     font-family: 'Inter', sans-serif;;
+}
+p {
+    font-size: 15px;
+}
+
+body {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--off-white);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+ul {
+    display: flex;
+}
+.menu, .close-menu {
+    display: none;
+}
+
+li {
+    list-style: none;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+li:hover {
+    color: var(--soft-red);
+}
+
+/* Main */
+.main-grid {
+    display: grid;
+    grid-template-columns: repeat(3,294px);
+    grid-template-rows: repeat(3, 190px);
+    grid-gap: 2rem;
+    grid-template-areas:
+    "main-img main-img aside-long"
+    "h1-main aside-main-cta aside-long"
+    "part1 part2 part3";
+}
+
+.main-img {
+    width: 100%;
+    height: 190px;
+    grid-area: main-img;
+}
+
+/* Main End */
+
+
+/* Aside Long */
+
+.aside-long {
+    grid-area: aside-long;
+    background-color: var(--very-dark-blue);
+    padding: 1rem;
+}
+.aside-long > h1 {
+    color: var(--soft-orange);
+    margin-bottom: 1rem;
+}
+.side-parts {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--dark-grayish-blue);
+    margin-bottom: 1.5rem;
+}
+.side-parts:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.side-parts h3 {
+    color: var(--off-white);
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    cursor: pointer;
+}
+.side-parts h3:hover {
+    color: var(--soft-orange);
+}
+.side-parts p {
+    color: var(--dark-grayish-blue);
+    font-size: 15px;
+}
+
+/* End of Aside-long */
+
+/* Aside Main CTA */
+
+.aside-main-cta {
+    grid-area: aside-main-cta;
+    padding-top: 1rem;
+}
+.aside-main-cta p {
+    color: var(--dark-grayish-blue);
+    margin-bottom: 1rem;
+}
+.aside-main-cta button {
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: var(--soft-red);
+    color: var(--off-white);
+    border: none;
+    border-radius: none;
+    padding: .6rem 1.2rem;
+    letter-spacing: 3px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.aside-main-cta button:hover {
+    background-color: var(--very-dark-blue);
+}
+
+
+/* End of Aside Main CTA */
+
+
+.h1-main {
+    grid-area: h1-main;
+    font-size: 3rem;
+    line-height: 3rem;
+    padding-top: 1rem;
+}
+
+.part1 {
+    grid-area: part1;
+}
+.part2 {
+    grid-area: part2;
+}
+.part3 {
+    grid-area: part3;
+}
+
+
+
+
+/* Third Grid */
+.section-parts {
+    display: flex;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+}
+.section-parts:last-child {
+    margin-right: 0;
+}
+.section-parts > img {
+    max-height: 130px;
+    object-fit: contain;
+    margin: 0;
+}
+
+.section-parts > div {
+    margin-left: 1rem;
+    color: var(--very-dark-blue);
+}
+.section-parts h3 {
+    margin-bottom: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.section-parts h3:hover {
+    color: var(--soft-red);
+}
+.digit {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--grayish-blue);
+    margin-bottom: .5rem;
+}
+.section-parts p {
+    color: var(--dark-grayish-blue);
+    font-size: 12px;
+}
+
+/* Media query for mobile screens */
+@media only screen and (max-device-width: 812px) { 
+    .main-grid {
+        display: none;
+    }
+
+    nav {
+        width: 100vw;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    ul {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0;
+        right: 0;
+        background-color: var(--off-white);
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        flex-direction: column;
+    }
+    .close-menu {
+        width: 100%;
+        margin-right: 0;
+        float: right;
+        align-items: center;
+        justify-content: right;
+        margin-bottom: 5rem;
+        padding-top: 2rem;
+        padding-right: 2rem;
+    }
+    li {
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+        color: var(--very-dark-blue);
+    }
+    .menu {
+        display: block;
+    }
+
 }
